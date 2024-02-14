@@ -33,3 +33,6 @@ To execute the tests, run the following testng.xml file from eclipse:
 
 ## Running Test CSV Output File
 https://github.com/jyotibisht25/Loop/blob/main/chargebacks_payouts_overview.csv
+
+## Recording for test cases
+https://github.com/jyotibisht25/Loop/blob/main/Selenium%20Recording.mov
