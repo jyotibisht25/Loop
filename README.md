@@ -28,7 +28,5 @@ Before running the tests, ensure you have the following installed:
     ```
 
 ## Running Tests
-To execute the tests, run the following Maven command:
-
-```bash
-mvn test
+To execute the tests, run the following testng.xml file from eclipse:
+![image](https://github.com/jyotibisht25/Loop/assets/104520755/6df738b3-e221-4c40-bb63-9e4e9772740f)
