@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="3" failed="5" skipped="0">
+<testng-results ignored="0" total="12" passed="7" failed="5" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-14T13:09:14 IST" name="Default suite" finished-at="2024-02-14T13:09:45 IST" duration-ms="31005">
+  <suite started-at="2024-02-14T19:43:25 IST" name="Suite" finished-at="2024-02-14T19:44:25 IST" duration-ms="60481">
     <groups>
     </groups>
-    <test started-at="2024-02-14T13:09:14 IST" name="Default test" finished-at="2024-02-14T13:09:45 IST" duration-ms="31005">
+    <test started-at="2024-02-14T19:43:25 IST" name="Test" finished-at="2024-02-14T19:44:25 IST" duration-ms="60481">
       <class name="test.DataVerification">
-        <test-method signature="loginTryLoop()[pri:1, instance:test.DataVerification@32193bea]" started-at="2024-02-14T13:09:14 IST" name="loginTryLoop" finished-at="2024-02-14T13:09:27 IST" duration-ms="12875" status="PASS">
+        <test-method signature="loginTryLoop()[pri:1, instance:test.DataVerification@8c11eee]" started-at="2024-02-14T19:43:50 IST" name="loginTryLoop" finished-at="2024-02-14T19:44:24 IST" duration-ms="33511" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTryLoop -->
-        <test-method signature="StoreGrandTotalAugust()[pri:2, instance:test.DataVerification@32193bea]" started-at="2024-02-14T13:09:27 IST" name="StoreGrandTotalAugust" finished-at="2024-02-14T13:09:44 IST" duration-ms="17041" status="PASS">
+        <test-method signature="StoreGrandTotalAugust()[pri:2, instance:test.DataVerification@8c11eee]" started-at="2024-02-14T19:44:24 IST" name="StoreGrandTotalAugust" finished-at="2024-02-14T19:44:24 IST" duration-ms="179" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- StoreGrandTotalAugust -->
-        <test-method signature="StoreGrandTotalSeptember()[pri:3, instance:test.DataVerification@32193bea]" started-at="2024-02-14T13:09:44 IST" name="StoreGrandTotalSeptember" finished-at="2024-02-14T13:09:44 IST" duration-ms="167" status="PASS">
+        <test-method signature="StoreGrandTotalSeptember()[pri:3, instance:test.DataVerification@8c11eee]" started-at="2024-02-14T19:44:24 IST" name="StoreGrandTotalSeptember" finished-at="2024-02-14T19:44:24 IST" duration-ms="175" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- StoreGrandTotalSeptember -->
-        <test-method signature="StoreGrandTotalOctober()[pri:4, instance:test.DataVerification@32193bea]" started-at="2024-02-14T13:09:44 IST" name="StoreGrandTotalOctober" finished-at="2024-02-14T13:09:44 IST" duration-ms="165" status="FAIL">
+        <test-method signature="StoreGrandTotalOctober()[pri:4, instance:test.DataVerification@8c11eee]" started-at="2024-02-14T19:44:24 IST" name="StoreGrandTotalOctober" finished-at="2024-02-14T19:44:25 IST" duration-ms="207" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
@@ -30,7 +30,7 @@ October month values are not equal to Grand total within tolerance expected [tru
 October month values are not equal to Grand total within tolerance expected [true] but found [false]
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at test.DataVerification.StoreGrandTotalOctober(DataVerification.java:65)
+at test.DataVerification.StoreGrandTotalOctober(DataVerification.java:92)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -65,7 +65,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- StoreGrandTotalOctober -->
-        <test-method signature="StoreGrandTotalNovember()[pri:5, instance:test.DataVerification@32193bea]" started-at="2024-02-14T13:09:44 IST" name="StoreGrandTotalNovember" finished-at="2024-02-14T13:09:45 IST" duration-ms="186" status="FAIL">
+        <test-method signature="StoreGrandTotalNovember()[pri:5, instance:test.DataVerification@8c11eee]" started-at="2024-02-14T19:44:25 IST" name="StoreGrandTotalNovember" finished-at="2024-02-14T19:44:25 IST" duration-ms="159" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
@@ -76,7 +76,7 @@ November month values are not equal to Grand total within tolerance expected [tr
 November month values are not equal to Grand total within tolerance expected [true] but found [false]
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at test.DataVerification.StoreGrandTotalNovember(DataVerification.java:75)
+at test.DataVerification.StoreGrandTotalNovember(DataVerification.java:108)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -111,7 +111,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- StoreGrandTotalNovember -->
-        <test-method signature="StoreGrandTotalDecember()[pri:6, instance:test.DataVerification@32193bea]" started-at="2024-02-14T13:09:45 IST" name="StoreGrandTotalDecember" finished-at="2024-02-14T13:09:45 IST" duration-ms="158" status="FAIL">
+        <test-method signature="StoreGrandTotalDecember()[pri:6, instance:test.DataVerification@8c11eee]" started-at="2024-02-14T19:44:25 IST" name="StoreGrandTotalDecember" finished-at="2024-02-14T19:44:25 IST" duration-ms="167" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
@@ -122,7 +122,7 @@ December month values are not equal to Grand total within tolerance expected [tr
 December month values are not equal to Grand total within tolerance expected [true] but found [false]
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at test.DataVerification.StoreGrandTotalDecember(DataVerification.java:85)
+at test.DataVerification.StoreGrandTotalDecember(DataVerification.java:124)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -157,7 +157,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- StoreGrandTotalDecember -->
-        <test-method signature="StoreGrandTotalJanuary()[pri:7, instance:test.DataVerification@32193bea]" started-at="2024-02-14T13:09:45 IST" name="StoreGrandTotalJanuary" finished-at="2024-02-14T13:09:45 IST" duration-ms="161" status="FAIL">
+        <test-method signature="StoreGrandTotalJanuary()[pri:7, instance:test.DataVerification@8c11eee]" started-at="2024-02-14T19:44:25 IST" name="StoreGrandTotalJanuary" finished-at="2024-02-14T19:44:25 IST" duration-ms="150" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
@@ -168,7 +168,7 @@ January month values are not equal to Grand total within tolerance expected [tru
 January month values are not equal to Grand total within tolerance expected [true] but found [false]
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at test.DataVerification.StoreGrandTotalJanuary(DataVerification.java:95)
+at test.DataVerification.StoreGrandTotalJanuary(DataVerification.java:140)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -203,7 +203,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- StoreGrandTotalJanuary -->
-        <test-method signature="StoreGrandTotalFebuary()[pri:8, instance:test.DataVerification@32193bea]" started-at="2024-02-14T13:09:45 IST" name="StoreGrandTotalFebuary" finished-at="2024-02-14T13:09:45 IST" duration-ms="214" status="FAIL">
+        <test-method signature="StoreGrandTotalFebuary()[pri:8, instance:test.DataVerification@8c11eee]" started-at="2024-02-14T19:44:25 IST" name="StoreGrandTotalFebuary" finished-at="2024-02-14T19:44:25 IST" duration-ms="260" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
@@ -214,7 +214,7 @@ Febuary month values are not equal to Grand total within tolerance expected [tru
 Febuary month values are not equal to Grand total within tolerance expected [true] but found [false]
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at test.DataVerification.StoreGrandTotalFebuary(DataVerification.java:105)
+at test.DataVerification.StoreGrandTotalFebuary(DataVerification.java:156)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -250,6 +250,24 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </reporter-output>
         </test-method> <!-- StoreGrandTotalFebuary -->
       </class> <!-- test.DataVerification -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="test.DataExtractionValidation">
+        <test-method signature="loginTryLoop()[pri:1, instance:test.DataExtractionValidation@5cdd09b1]" started-at="2024-02-14T19:43:25 IST" name="loginTryLoop" finished-at="2024-02-14T19:43:39 IST" duration-ms="13990" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTryLoop -->
+        <test-method signature="selectLocationMarketplaces()[pri:2, instance:test.DataExtractionValidation@5cdd09b1]" started-at="2024-02-14T19:43:39 IST" name="selectLocationMarketplaces" finished-at="2024-02-14T19:43:45 IST" duration-ms="5971" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectLocationMarketplaces -->
+        <test-method signature="generateCSVFile()[pri:3, instance:test.DataExtractionValidation@5cdd09b1]" started-at="2024-02-14T19:43:45 IST" name="generateCSVFile" finished-at="2024-02-14T19:43:45 IST" duration-ms="658" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateCSVFile -->
+        <test-method signature="validateCSVFile()[pri:4, instance:test.DataExtractionValidation@5cdd09b1]" started-at="2024-02-14T19:43:45 IST" name="validateCSVFile" finished-at="2024-02-14T19:43:50 IST" duration-ms="5018" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateCSVFile -->
+      </class> <!-- test.DataExtractionValidation -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

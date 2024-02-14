@@ -5,12 +5,16 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
 import AbstractComponenets.AbstractComponent;
 
+/**
+ * This class represents the Page Object for the History by Store page in a web application.
+ * It contains methods to interact with various elements on the page and perform validations.
+ */
 public class HistoryByStorePageObject extends AbstractComponent {
 
 	WebDriver driver;
@@ -24,6 +28,11 @@ public class HistoryByStorePageObject extends AbstractComponent {
 	static double totalSumJan;
 	static double totalSumFeb;
 
+	/**
+	 * Constructs a new HistoryByStorePageObject with the specified WebDriver.
+	 * 
+	 * @param driver The WebDriver instance to use.
+	 */
 	public HistoryByStorePageObject(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
@@ -63,110 +72,143 @@ public class HistoryByStorePageObject extends AbstractComponent {
 	@FindBy(xpath = "//span[text()='Transactions']")
 	WebElement transactionButton;
 
-	// skip for now alert
+	@FindBy(xpath = "//button[@data-testid='pagination-next']")
+	WebElement nextButton;
+
+	/**
+	 * Clicks the 'Skip for now' button.
+	 */
 	public void SkipForNow() {
-
-		// wait till the visibility of skip button
-		waitForElementToApper(skipForNowButton);
+		waitForElementToAppear(skipForNowButton);
 		skipForNowButton.click();
-		
-
 	}
 
+	/**
+	 * Retrieves the welcome message text.
+	 * 
+	 * @return The text of the welcome message.
+	 */
 	public String getWelcomeMsgg() {
 		return welcomeMsg.getText();
-
 	}
 
-	// to click on 3P Chargebacks button
+	/**
+	 * Clicks the '3P Chargebacks' button.
+	 */
 	public void clickChargebacksButton() {
-
-		// wait till the visibility of chargeback button
-		waitForElementToApper(chargebacksButton);
+		waitForElementToAppear(chargebacksButton);
 		chargebacksButton.click();
-
 	}
 
-//to click on transaction
+	/**
+	 * Clicks the 'Transactions' button and navigates to the Transactions page.
+	 * 
+	 * @return A TransactionsPageObject representing the Transactions page.
+	 */
 	public TransactionsPageObject clickTransactions() {
-		// wait till the visibility of history by store button
-		waitForElementToApper(transactionButton);
+		waitForElementToAppear(transactionButton);
 		transactionButton.click();
 		return new TransactionsPageObject(driver);
 	}
 
-	// to click on History by Store
+	/**
+	 * Clicks the 'History by Store' button.
+	 */
 	public void clickHistoryByStore() {
-		// wait till the visibility of history by store button
-		waitForElementToApper(historyButton);
+		waitForElementToAppear(historyButton);
 		historyButton.click();
 	}
 
-	// to click on History by Store
+	/**
+	 * Clicks the 'Drill Down' button.
+	 */
 	public void clickDrillDown() {
-		waitForElementToApper(drillDown);
+		waitForElementToAppear(drillDown);
 		drillDown.click();
 		selectReversal.click();
 	}
 
-	// to get row count
+	/**
+	 * Retrieves the number of rows in the table.
+	 * 
+	 * @throws InterruptedException if an interrupt occurs while waiting for the
+	 *                              element to appear.
+	 */
 	public void getRowCount() throws InterruptedException {
-		waitForElementToApper(table);
+		waitForElementToAppear(table);
 		rowCount = rows.size();
 		System.out.println("row count : " + rowCount);
-
 	}
 
-	// to get row colum count
+	/**
+	 * Retrieves the number of rows and columns in the table.
+	 */
 	public void getRowColCount() {
-		waitForElementToApper(storeName);
+		waitForElementToAppear(storeName);
 		rowCount = rows.size();
 		System.out.println("row count : " + rowCount);
 		colCount = cols.size();
 		System.out.println("Columns count : " + colCount);
-
 	}
 
-	// function to sum all values in column as per input month
-	public static double SumLocationvalue(WebDriver driver, int l, String month) {
-
+	/**
+	 * Sums all values in a column corresponding to a specified month.
+	 * 
+	 * @param driver The WebDriver instance to use.
+	 * @param l      The index of the column.
+	 * @param month  The name of the month.
+	 * @return The total sum of values in the column.
+	 * @throws InterruptedException if an interrupt occurs while waiting for the
+	 *                              element to appear.
+	 */
+	public double sumLocationValue(WebDriver driver, int l, String month) throws InterruptedException {
+		Actions actions = new Actions(driver);
 		double sum = 0;
 		double doubleValue = 0.00;
-		// TODO Auto-generated method stub
 		for (int k = 1; k < rowCount - 2; k++) {
 			String value1 = driver.findElement(By.xpath(
 					"//table[@class='MuiTable-root css-l6sbfr-MuiTable-root']//tbody/tr[" + k + "]/td[" + l + "]"))
 					.getText();
-			System.out.println("without modifiying " + value1);
+			System.out.println("without modifying " + value1);
 			value1 = value1.replace("$", "");
 			doubleValue = Double.parseDouble(value1);
 			sum = sum + doubleValue;
 		}
-		System.out.println("Total of this " + month + "is : " + sum);
+		System.out.println("Total of this " + month + " is : " + sum);
 		return sum;
 	}
 
-	public double validationAug() {
-		// Validation for August month
-		totalSumAugust = SumLocationvalue(driver, 2, "August");
+	/**
+	 * Performs validation for the month of August.
+	 * 
+	 * @return The absolute difference between expected and actual values.
+	 * @throws InterruptedException if an interrupt occurs while summing the values.
+	 */
+	public double validationAug() throws InterruptedException {
+		totalSumAugust = sumLocationValue(driver, 2, "August");
 		System.out.println("Total of this month is : " + totalSumAugust);
-		String ExpectedAugustTotal = driver
+		String expectedAugustTotal = driver
 				.findElement(By.xpath("//table[@class='MuiTable-root css-l6sbfr-MuiTable-root']//tbody/tr[12]/td[2]"))
 				.getText();
-		System.out.println("Total of this month expected is : " + ExpectedAugustTotal);
-		ExpectedAugustTotal = ExpectedAugustTotal.replace("$", "");
-		double ExpectedAugustTotalDouble = Double.parseDouble(ExpectedAugustTotal);
-		Assert.assertEquals(ExpectedAugustTotalDouble, totalSumAugust);
+		System.out.println("Total of this month expected is : " + expectedAugustTotal);
+		expectedAugustTotal = expectedAugustTotal.replace("$", "");
+		double expectedAugustTotalDouble = Double.parseDouble(expectedAugustTotal);
+		Assert.assertEquals(expectedAugustTotalDouble, totalSumAugust);
 
 		// Compare the absolute difference between the values with the tolerance
-		double difference = Math.abs(ExpectedAugustTotalDouble - totalSumAugust);
+		double difference = Math.abs(expectedAugustTotalDouble - totalSumAugust);
 
 		return difference;
 	}
 
-	public double validationSep() {
-		// Validation for September month
-		totalSumSep = SumLocationvalue(driver, 3, "September");
+	/**
+	 * Performs validation for the month of September.
+	 * 
+	 * @return The absolute difference between expected and actual values.
+	 * @throws InterruptedException if an interrupt occurs while summing the values.
+	 */
+	public double validationSep() throws InterruptedException {
+		totalSumSep = sumLocationValue(driver, 3, "September");
 		System.out.println("Total of this month is : " + totalSumSep);
 		String ExpectedSepTotal = driver
 				.findElement(By.xpath("//table[@class='MuiTable-root css-l6sbfr-MuiTable-root']//tbody/tr[12]/td[3]"))
@@ -182,9 +224,14 @@ public class HistoryByStorePageObject extends AbstractComponent {
 		return difference;
 	}
 
-	public double validationOctober() {
-		// validation for October month
-		totalSumOct = SumLocationvalue(driver, 4, "October");
+	/**
+	 * Performs validation for the month of October.
+	 * 
+	 * @return The absolute difference between expected and actual values.
+	 * @throws InterruptedException if an interrupt occurs while summing the values.
+	 */
+	public double validationOctober() throws InterruptedException {
+		totalSumOct = sumLocationValue(driver, 4, "October");
 		System.out.println("Total of this month is : " + totalSumOct);
 		String ExpectedOctTotal = driver
 				.findElement(By.xpath("//table[@class='MuiTable-root css-l6sbfr-MuiTable-root']//tbody/tr[12]/td[4]"))
@@ -197,11 +244,16 @@ public class HistoryByStorePageObject extends AbstractComponent {
 		double difference = Math.abs(ExpectedOctTotalDouble - totalSumOct);
 
 		return difference;
-
 	}
 
-	public double validationNovember() {
-		totalSumNov = SumLocationvalue(driver, 5, "November");
+	/**
+	 * Performs validation for the month of November.
+	 * 
+	 * @return The absolute difference between expected and actual values.
+	 * @throws InterruptedException if an interrupt occurs while summing the values.
+	 */
+	public double validationNovember() throws InterruptedException {
+		totalSumNov = sumLocationValue(driver, 5, "November");
 		System.out.println("Total of this month is : " + totalSumNov);
 		String ExpectedNovTotal = driver
 				.findElement(By.xpath("//table[@class='MuiTable-root css-l6sbfr-MuiTable-root']//tbody/tr[12]/td[5]"))
@@ -216,8 +268,14 @@ public class HistoryByStorePageObject extends AbstractComponent {
 		return difference;
 	}
 
-	public double validationDecember() {
-		totalSumDec = SumLocationvalue(driver, 6, "December");
+	/**
+	 * Performs validation for the month of December.
+	 * 
+	 * @return The absolute difference between expected and actual values.
+	 * @throws InterruptedException if an interrupt occurs while summing the values.
+	 */
+	public double validationDecember() throws InterruptedException {
+		totalSumDec = sumLocationValue(driver, 6, "December");
 		System.out.println("Total of this month is : " + totalSumDec);
 		String ExpectedDecTotal = driver
 				.findElement(By.xpath("//table[@class='MuiTable-root css-l6sbfr-MuiTable-root']//tbody/tr[12]/td[5]"))
@@ -232,8 +290,14 @@ public class HistoryByStorePageObject extends AbstractComponent {
 		return difference;
 	}
 
-	public double validationJanuary() {
-		totalSumJan = SumLocationvalue(driver, 7, "January");
+	/**
+	 * Performs validation for the month of January.
+	 * 
+	 * @return The absolute difference between expected and actual values.
+	 * @throws InterruptedException if an interrupt occurs while summing the values.
+	 */
+	public double validationJanuary() throws InterruptedException {
+		totalSumJan = sumLocationValue(driver, 7, "January");
 		System.out.println("Total of this month is : " + totalSumJan);
 		String ExpectedJanTotal = driver
 				.findElement(By.xpath("//table[@class='MuiTable-root css-l6sbfr-MuiTable-root']//tbody/tr[12]/td[5]"))
@@ -248,8 +312,14 @@ public class HistoryByStorePageObject extends AbstractComponent {
 		return difference;
 	}
 
-	public double validationFebuary() {
-		totalSumFeb = SumLocationvalue(driver, 8, "Febuary");
+	/**
+	 * Performs validation for the month of February.
+	 * 
+	 * @return The absolute difference between expected and actual values.
+	 * @throws InterruptedException if an interrupt occurs while summing the values.
+	 */
+	public double validationFebruary() throws InterruptedException {
+		totalSumFeb = sumLocationValue(driver, 8, "February");
 		System.out.println("Total of this month is : " + totalSumFeb);
 		String ExpectedFebTotal = driver
 				.findElement(By.xpath("//table[@class='MuiTable-root css-l6sbfr-MuiTable-root']//tbody/tr[12]/td[5]"))

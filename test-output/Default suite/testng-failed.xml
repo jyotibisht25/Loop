@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.DataVerification">
+      <class name="test.DataExtractionValidation">
         <methods>
-          <include name="StoreGrandTotalOctober"/>
-          <include name="StoreGrandTotalFebuary"/>
-          <include name="StoreGrandTotalDecember"/>
-          <include name="StoreGrandTotalNovember"/>
-          <include name="StoreGrandTotalJanuary"/>
+          <include name="generateCSVFile"/>
+          <include name="selectLocationMarketplaces"/>
+          <include name="validateCSVFile"/>
+          <include name="loginTryLoop"/>
         </methods>
-      </class> <!-- test.DataVerification -->
+      </class> <!-- test.DataExtractionValidation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
