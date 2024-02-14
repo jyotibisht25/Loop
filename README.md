@@ -31,5 +31,5 @@ Before running the tests, ensure you have the following installed:
 To execute the tests, run the following testng.xml file from eclipse:
 ![image](https://github.com/jyotibisht25/Loop/assets/104520755/6df738b3-e221-4c40-bb63-9e4e9772740f)
 
-## Running Test output
+## Running Test CSV Output File
 https://github.com/jyotibisht25/Loop/blob/main/chargebacks_payouts_overview.csv
